@@ -10,11 +10,11 @@ public class Quicksort
         a[l] = t;
     }
 
-    static int partition (int[] a, int l, int h)
+    static int partition (int[] a, int low, int high)
     {
-        int pivot = a[h];
-        i = l - 1;
-        for (j = l; j < h; j++)
+        int pivot = a[high];
+        i = low - 1;
+        for (j = low; j < high; j++)
         {
             if (a[j] <= pivot)
             {
@@ -22,18 +22,18 @@ public class Quicksort
                 swap (a, i, j);
             }
         }
-        swap (a, i + 1, h);
+        swap (a, i + 1, high);
         return (i + 1);
     }
 
-    static void sort (int[] a, int l, int h)
+    static void sort (int[] a, int low, int high)
     {
-        if (l < h)
+        if (low < high)
         {
-            int pi = partition (a, l, h);
+            int pi = partition (a, low, high);
             //recursive call to quicksort function.
-            sort (a, l, pi - 1);
-            sort (a, pi + 1, h);
+            sort (a, low, pi - 1);
+            sort (a, pi + 1, high);
         }
     }
 }
